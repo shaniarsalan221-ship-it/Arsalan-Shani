@@ -67,28 +67,43 @@
   }
 
   .custom-hero-banner__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
 
-    padding: 14px 28px;
+  min-width: 134px;
+  height: 31px;
+  padding: 0 14px 0 32px;
 
-    color: #ffffff;
-    background: #000000;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0;
 
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 
-    transition:
-      transform 0.25s ease,
-      background-color 0.25s ease;
-  }
+  transition: all 0.3s ease;
+}
 
-  .custom-hero-banner__button:hover {
-    transform: translateY(-3px);
-  }
+.custom-hero-banner__button::after {
+  content: '→';
+  font-size: 19px;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
 
+.custom-hero-banner__button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.custom-hero-banner__button:hover::after {
+  transform: translateX(5px);
+}
   @media screen and (max-width: 749px) {
     .custom-hero-banner {
       min-height: 500px;
