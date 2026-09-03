@@ -14,8 +14,10 @@
       "name": "Hero Banner",
       "settings": {
         "image": "shopify://shop_images/Group_1000008197.png",
-        "h1-heading": "The Gift Guide",
-        "para": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+        "h1_heading": "The Gift Guide",
+        "para": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "btn_text": "Shop Now",
+        "url": ""
       }
     },
     "hero_jVaWmY": {
