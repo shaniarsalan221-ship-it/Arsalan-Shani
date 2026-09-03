@@ -1,4 +1,9 @@
-<div class="main-banner">
+<section class="main-banner"
+{% if section.settings.image != blank %}
+    style="background-image: url('{{ section.settings.image | image_url: width: 2400 }}');"
+  {% endif %}
+>
+<div class="main-container">
 <h1>
     {{ section.settings.h1-heading }}
 </h1>
@@ -7,6 +12,8 @@
 </p>
 <a href="{{ section.settings.url }}">{{ section.settings.btn-text }}</a>
 </div>
+
+</section>
 
 {% schema %}
 {
