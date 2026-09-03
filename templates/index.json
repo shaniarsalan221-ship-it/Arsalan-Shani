@@ -9,6 +9,15 @@
  */
 {
   "sections": {
+    "hero_banner_Y6iR3A": {
+      "type": "Hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/Group_1000008197.png",
+        "h1-heading": "The Gift Guide",
+        "para": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -113,7 +122,7 @@
         "section_height_custom": 50,
         "background_color": "rgba(0,0,0,0)",
         "toggle_overlay": true,
-        "overlay_color": "#12121200",
+        "overlay_color": "rgba(0,0,0,0)",
         "overlay_style": "solid",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
@@ -169,7 +178,7 @@
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "#F5F5F5",
+        "background_color": "#f5f5f5",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -386,6 +395,7 @@
     }
   },
   "order": [
+    "hero_banner_Y6iR3A",
     "hero_jVaWmY",
     "section_FaK7yy",
     "product_list_fa6P9H"
