@@ -5,12 +5,16 @@
 >
 <div class="main-container">
 <h1>
+    {% if section.settings.h1-heading != blank %}
     {{ section.settings.h1-heading }}
+      {% endif %}
 </h1>
 <p>
+    {% if section.settings.para != blank %}
     {{ section.settings.para }}
+      {% endif %}
 </p>
-<a href="{{ section.settings.url }}">{{ section.settings.btn-text }}</a>
+<a href="   {% if section.settings.btn-text != blank %} {{ section.settings.url }}">{{ section.settings.btn-text }} {% endif %} </a>
 </div>
 
 </section>
@@ -23,6 +27,16 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:settings.image",
+    },
+    {
+      "type": "text",
+      "id": "h1-heading",
+      "label": "t:settings.heading",
+    },
+     {
+      "type": "text",
+      "id": "para",
+      "label": "paragraph",
     }
 ],
   "presets": [
