@@ -8,9 +8,20 @@
 <a href="{{ section.settings.url }}">{{ section.settings.btn-text }}</a>
 </div>
 
-{%schema%}
+{% schema %}
 {
- "name": "hero-banner",
-  "tag": "section",
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1_mobile",
+      "label": "t:settings.image",
+    }
+],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
 }
-{%endschema%}
+{% endschema %}
