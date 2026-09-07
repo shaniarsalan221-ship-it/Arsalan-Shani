@@ -1,67 +1,205 @@
 <section
   id="announcement-bar-{{ section.id }}"
   class="custom-announcement-bar"
+  style="
+    --announcement-bg: {{ section.settings.background_color }};
+    --announcement-text: {{ section.settings.text_color }};
+    --announcement-font-size: {{ section.settings.font_size }}px;
+    --announcement-padding-top: {{ section.settings.padding_top }}px;
+    --announcement-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --announcement-padding-left: {{ section.settings.padding_left }}px;
+    --announcement-padding-right: {{ section.settings.padding_right }}px;
+  "
 >
-  <div class="custom-announcement-bar__content">
+  <div
+    class="custom-announcement-bar__content"
+    style="text-align: {{ section.settings.text_alignment }};"
+  >
     {{ section.settings.text }}
   </div>
 </section>
 
+
 <style>
+
   #announcement-bar-{{ section.id }} {
     width: 100%;
-    background: #f4f4f4;
-    margin: 0;
-    padding: 4px 20px;
+    box-sizing: border-box;
+
+    background: var(--announcement-bg);
+
+    padding-top: var(--announcement-padding-top);
+    padding-bottom: var(--announcement-padding-bottom);
+    padding-left: var(--announcement-padding-left);
+    padding-right: var(--announcement-padding-right);
   }
+
 
   #announcement-bar-{{ section.id }}
   .custom-announcement-bar__content {
-    margin: 0 auto;
 
-    text-align: center;
+    width: 100%;
+
+    color: var(--announcement-text);
 
     font-family: 'Jost', sans-serif;
-    font-size: 9px;
+
+    font-size: var(--announcement-font-size);
+
     font-weight: 400;
+
     line-height: 1.4;
 
-    color: #000;
+    margin: 0;
+
   }
+
 
   #announcement-bar-{{ section.id }}
   .custom-announcement-bar__content p {
+
     margin: 0;
+
   }
+
+
+  #announcement-bar-{{ section.id }}
+  .custom-announcement-bar__content a {
+
+    color: inherit;
+
+  }
+
 
   @media screen and (max-width: 749px) {
-    #announcement-bar-{{ section.id }} {
-      padding: 5px 12px;
-    }
 
-    #announcement-bar-{{ section.id }}
-    .custom-announcement-bar__content {
-      font-size: 8px;
+    #announcement-bar-{{ section.id }} {
+      padding-left: 10px;
+      padding-right: 10px;
     }
+    
+  #announcement-bar-{{ section.id }}
+  .custom-announcement-bar__content {
+  font-size: 16px;
   }
+
 </style>
 
+
 {% schema %}
+
 {
   "name": "Custom Announcement Bar",
+
   "tag": "section",
+
   "settings": [
+
     {
       "type": "richtext",
       "id": "text",
       "label": "Announcement Text",
       "default": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>"
+    },
+
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F4F4F4"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
     }
+
   ],
+
   "presets": [
     {
       "name": "Custom Announcement Bar"
     }
   ]
+
 }
+
 {% endschema %}
