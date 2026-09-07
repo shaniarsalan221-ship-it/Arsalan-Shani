@@ -1,47 +1,82 @@
 <section
+  id="custom-hero-{{ section.id }}"
   class="custom-hero-banner"
+
   {% if section.settings.image != blank %}
-    style="background-image: url('{{ section.settings.image | image_url: width: 2400 }}');"
+    style="
+      --desktop-image: url('{{ section.settings.image | image_url: width: 2400 }}');
+    "
+  {% endif %}
+
+  {% if section.settings.image_mobile != blank %}
+    data-mobile-image="{{ section.settings.image_mobile | image_url: width: 1200 }}"
   {% endif %}
 >
+
   <div class="custom-hero-banner__content">
+
     {% if section.settings.h1_heading != blank %}
-      <h1>{{ section.settings.h1_heading }}</h1>
+      <h1>
+        {{ section.settings.h1_heading }}
+      </h1>
     {% endif %}
 
+
     {% if section.settings.para != blank %}
-      <p>{{ section.settings.para }}</p>
+      <p>
+        {{ section.settings.para }}
+      </p>
     {% endif %}
+
 
     {% if section.settings.btn_text != blank %}
       <a
         href="{{ section.settings.url }}"
         class="custom-hero-banner__button"
       >
-        {{ section.settings.btn_text }}
+        <span>{{ section.settings.btn_text }}</span>
       </a>
     {% endif %}
+
   </div>
+
 </section>
 
+
 <style>
-  .custom-hero-banner {
+
+  /* ================================
+     DESKTOP
+  ================================= */
+
+  #custom-hero-{{ section.id }} {
     position: relative;
+
     width: 100%;
     min-height: 600px;
+
+    background-image: var(--desktop-image);
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     display: flex;
+
     align-items: flex-end;
     justify-content: flex-start;
 
     overflow: hidden;
   }
 
+
+  /* ================================
+     CONTENT
+  ================================= */
+
+  #custom-hero-{{ section.id }}
   .custom-hero-banner__content {
+
     position: relative;
     z-index: 2;
 
@@ -49,127 +84,387 @@
     max-width: 650px;
 
     padding: 60px;
-    color: #000000ff;
+
+    color: #000;
   }
 
+
+  #custom-hero-{{ section.id }}
   .custom-hero-banner__content h1 {
-      font-family: 'Jost', sans-serif;
+
+    font-family: 'Jost', sans-serif;
+
     margin: 0 0 18px;
+
     font-size: clamp(36px, 5vw, 72px);
+
     line-height: 1.05;
+
     font-weight: 700;
   }
 
+
+  #custom-hero-{{ section.id }}
   .custom-hero-banner__content p {
-      font-family: 'Jost', sans-serif;
+
+    font-family: 'Jost', sans-serif;
+
     margin: 0 0 28px;
+
     font-size: 18px;
+
     line-height: 1.5;
+
     max-width: 550px;
   }
 
+
+  /* ================================
+     BUTTON
+  ================================= */
+
+  #custom-hero-{{ section.id }}
   .custom-hero-banner__button {
-      font-family: 'Jost', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
 
-  min-width: 134px;
-  height: 31px;
-  padding: 0 14px 0 32px;
+    font-family: 'Jost', sans-serif;
 
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 0;
+    display: inline-flex;
 
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.3px;
+    align-items: center;
 
-  transition: all 0.3s ease;
-}
+    justify-content: space-between;
 
-.custom-hero-banner__button::after {
-  content: '→';
-  font-size: 19px;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
+    gap: 28px;
 
-.custom-hero-banner__button:hover {
-  background: #000;
-  color: #fff;
-}
+    min-width: 134px;
 
-.custom-hero-banner__button:hover::after {
-  transform: translateX(5px);
-}
-  @media screen and (max-width: 749px) {
-    .custom-hero-banner {
-      min-height: 500px;
-      background-position: center;
-    }
+    height: 31px;
 
-    .custom-hero-banner__content {
-      padding: 30px 20px;
-      max-width: 100%;
-    }
+    padding: 0 14px 0 32px;
 
-    .custom-hero-banner__content h1 {
-      font-size: 38px;
-    }
+    background: #000;
 
-    .custom-hero-banner__content p {
-      font-size: 16px;
-    }
+    color: #fff;
 
-    .custom-hero-banner__button {
-      padding: 12px 22px;
-      font-size: 16px;
-    }
+    border: none;
+
+    border-radius: 0;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.3px;
+
+    transition: all 0.3s ease;
   }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button::after {
+
+    content: '→';
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    transition: transform 0.3s ease;
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button:hover {
+
+    background: #000;
+
+    color: #fff;
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button:hover::after {
+
+    transform: translateX(5px);
+  }
+
+
+  /* ================================
+     MOBILE
+  ================================= */
+
+  @media screen and (max-width: 749px) {
+
+    #custom-hero-{{ section.id }} {
+
+      /*
+        Mobile banner shape
+      */
+
+      width: 100%;
+
+      height: auto;
+
+      min-height: 0;
+
+      aspect-ratio: 0.88 / 1;
+
+      /*
+        Use mobile image if selected
+      */
+
+      {% if section.settings.image_mobile != blank %}
+
+        background-image: url('{{ section.settings.image_mobile | image_url: width: 1200 }}');
+
+      {% endif %}
+
+      background-size: cover;
+
+      background-position: center;
+
+      background-repeat: no-repeat;
+
+      display: block;
+
+      position: relative;
+    }
+
+
+    /* ============================
+       MOBILE CONTENT
+    ============================ */
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__content {
+
+      position: absolute;
+
+      top: 28px;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: calc(100% - 30px);
+
+      max-width: 300px;
+
+      padding: 0;
+
+      text-align: center;
+
+      color: #000;
+    }
+
+
+    /* ============================
+       MOBILE HEADING
+    ============================ */
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__content h1 {
+
+      margin: 0 0 12px;
+
+      font-family: 'Jost', sans-serif;
+
+      font-size: 22px;
+
+      line-height: 1.2;
+
+      font-weight: 500;
+    }
+
+
+    /* ============================
+       MOBILE DESCRIPTION
+    ============================ */
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__content p {
+
+      margin: 0 auto;
+
+      max-width: 220px;
+
+      font-family: 'Jost', sans-serif;
+
+      font-size: 11px;
+
+      line-height: 1.35;
+
+      font-weight: 400;
+    }
+
+
+    /* ============================
+       MOBILE BUTTON
+    ============================ */
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__button {
+
+      position: absolute;
+
+      top: 180px;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      min-width: 145px;
+
+      height: 30px;
+
+      padding: 0 12px 0 20px;
+
+      gap: 15px;
+
+      justify-content: space-between;
+
+      background: #000;
+
+      color: #fff;
+
+      font-family: 'Jost', sans-serif;
+
+      font-size: 10px;
+
+      font-weight: 400;
+
+      letter-spacing: 0.2px;
+
+      white-space: nowrap;
+    }
+
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__button::after {
+
+      font-size: 16px;
+    }
+
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__button:hover::after {
+
+      transform: translateX(4px);
+    }
+
+  }
+
+
+  /* ================================
+     SMALL MOBILE
+  ================================= */
+
+  @media screen and (max-width: 380px) {
+
+    #custom-hero-{{ section.id }} {
+
+      aspect-ratio: 0.88 / 1;
+    }
+
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__content {
+
+      top: 24px;
+
+      width: calc(100% - 24px);
+    }
+
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__content h1 {
+
+      font-size: 20px;
+
+      margin-bottom: 10px;
+    }
+
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__content p {
+
+      font-size: 10px;
+
+      max-width: 210px;
+    }
+
+
+    #custom-hero-{{ section.id }}
+    .custom-hero-banner__button {
+
+      top: 165px;
+
+      min-width: 138px;
+
+      height: 29px;
+    }
+
+  }
+
 </style>
 
+
 {% schema %}
+
 {
   "name": "Hero Banner",
+
   "settings": [
+
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Banner Image"
+      "label": "Desktop Banner Image"
     },
+
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Banner Image"
+    },
+
     {
       "type": "text",
       "id": "h1_heading",
       "label": "Heading",
-      "default": "Your heading here"
+      "default": "The Gift Guide"
     },
+
     {
       "type": "textarea",
       "id": "para",
       "label": "Description",
-      "default": "Add your banner description here."
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination."
     },
+
     {
       "type": "text",
       "id": "btn_text",
       "label": "Button Text",
-      "default": "Shop Now"
+      "default": "SHOP NOW"
     },
+
     {
       "type": "url",
       "id": "url",
       "label": "Button Link"
     }
+
   ],
+
   "presets": [
     {
       "name": "Hero Banner"
     }
   ]
+
 }
+
 {% endschema %}
