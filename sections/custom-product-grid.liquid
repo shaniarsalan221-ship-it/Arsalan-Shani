@@ -1001,29 +1001,23 @@ transition: transform 0.25s ease;
      BLACK + MEDIUM DETECTION
   ----------------------------------------- */
 
-  function isBlackAndMediumVariant(variant) {
-
-    if (!variant) return false;
-
-    const options = variant.options || [];
-
-    const normalizedOptions = options.map(
-      function(option) {
-
-        return String(option)
-          .trim()
-          .toLowerCase();
-
-      }
-    );
-
-    const hasBlack = normalizedOptions.includes('black');
-
-    const hasMedium = normalizedOptions.includes('medium');
-
-    return hasBlack && hasMedium;
-
+ function isBlackAndMediumVariant(variant) {
+  if (!variant || !variant.options) {
+    return false;
   }
+
+  const options = variant.options.map(function(option) {
+    return String(option).trim().toLowerCase();
+  });
+
+  const hasBlack = options.includes('black');
+
+  const hasMedium =
+    options.includes('m') ||
+    options.includes('medium');
+
+  return hasBlack && hasMedium;
+}
 
 
   /* -----------------------------------------
