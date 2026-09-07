@@ -1,0 +1,411 @@
+<header
+  id="custom-header-{{ section.id }}"
+  class="custom-header"
+>
+  <div class="custom-header__inner">
+
+  
+    <div class="custom-header__brand">
+      {{ section.settings.brand_text }}
+    </div>
+
+
+   
+    <div class="custom-header__message">
+      {{ section.settings.message }}
+    </div>
+
+
+    
+    {% if section.settings.button_text != blank %}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="custom-header__button"
+      >
+        <span>{{ section.settings.button_text }}</span>
+        <span class="custom-header__arrow">→</span>
+      </a>
+    {% endif %}
+
+  </div>
+</header>
+
+
+<style>
+
+  #custom-header-{{ section.id }} {
+    width: 100%;
+    background: {{ section.settings.background_color }};
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+
+  #custom-header-{{ section.id }}
+  .custom-header__inner {
+
+    width: 100%;
+
+    min-height: 28px;
+
+    padding:
+      {{ section.settings.padding_top }}px
+      {{ section.settings.padding_horizontal }}px
+      {{ section.settings.padding_bottom }}px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+
+    column-gap: 20px;
+  }
+
+
+  /* =========================
+     BRAND
+  ========================= */
+
+  #custom-header-{{ section.id }}
+  .custom-header__brand {
+
+    font-family: 'Jost', sans-serif;
+
+    font-size: {{ section.settings.brand_font_size }}px;
+
+    font-weight: 600;
+
+    letter-spacing: {{ section.settings.brand_letter_spacing }}px;
+
+    color: {{ section.settings.text_color }};
+
+    text-align: left;
+
+    line-height: 1;
+  }
+
+
+  /* =========================
+     CENTER MESSAGE
+  ========================= */
+
+  #custom-header-{{ section.id }}
+  .custom-header__message {
+
+    font-family: 'Jost', sans-serif;
+
+    font-size: {{ section.settings.message_font_size }}px;
+
+    font-weight: 400;
+
+    color: {{ section.settings.text_color }};
+
+    text-align: center;
+
+    line-height: 1.2;
+  }
+
+
+  /* =========================
+     BUTTON
+  ========================= */
+
+  #custom-header-{{ section.id }}
+  .custom-header__button {
+
+    justify-self: end;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+    min-width: {{ section.settings.button_width }}px;
+
+    height: {{ section.settings.button_height }}px;
+
+    padding: 0 12px 0 20px;
+
+    background: {{ section.settings.button_background }};
+
+    color: {{ section.settings.button_text_color }};
+
+    text-decoration: none;
+
+    font-family: 'Jost', sans-serif;
+
+    font-size: {{ section.settings.button_font_size }}px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    transition: opacity .25s ease;
+  }
+
+
+  #custom-header-{{ section.id }}
+  .custom-header__button:hover {
+
+    opacity: .85;
+  }
+
+
+  #custom-header-{{ section.id }}
+  .custom-header__arrow {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    transition: transform .25s ease;
+  }
+
+
+  #custom-header-{{ section.id }}
+  .custom-header__button:hover
+  .custom-header__arrow {
+
+    transform: translateX(4px);
+  }
+
+
+  /* =========================
+     MOBILE
+  ========================= */
+
+  @media screen and (max-width: 749px) {
+
+    #custom-header-{{ section.id }}
+    .custom-header__inner {
+
+      min-height: 38px;
+
+      padding:
+        6px 10px;
+
+      grid-template-columns: 1fr auto;
+
+      column-gap: 10px;
+    }
+
+
+    #custom-header-{{ section.id }}
+    .custom-header__brand {
+
+      font-size: 13px;
+
+      text-align: left;
+    }
+
+
+    #custom-header-{{ section.id }}
+    .custom-header__message {
+
+      display: none;
+    }
+
+
+    #custom-header-{{ section.id }}
+    .custom-header__button {
+
+      min-width: 105px;
+
+      height: 28px;
+
+      padding: 0 8px 0 12px;
+
+      gap: 8px;
+
+      font-size: 9px;
+    }
+
+
+    #custom-header-{{ section.id }}
+    .custom-header__arrow {
+
+      font-size: 14px;
+    }
+
+  }
+
+</style>
+
+
+{% schema %}
+
+{
+  "name": "Custom Gift Header",
+
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "brand_text",
+      "label": "Brand Name",
+      "default": "TISSO VISON"
+    },
+
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Center Message",
+      "default": "Find the ideal gift for your loved ones."
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CHOOSE GIFT"
+    },
+
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F5F5F5"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "#FFF200"
+    },
+
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "range",
+      "id": "brand_font_size",
+      "label": "Brand Font Size",
+      "min": 8,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+
+    {
+      "type": "range",
+      "id": "brand_letter_spacing",
+      "label": "Brand Letter Spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "message_font_size",
+      "label": "Message Font Size",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button Font Size",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+
+    {
+      "type": "range",
+      "id": "button_width",
+      "label": "Button Width",
+      "min": 80,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "default": 115
+    },
+
+    {
+      "type": "range",
+      "id": "button_height",
+      "label": "Button Height",
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal Padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Custom Gift Header"
+    }
+  ]
+
+}
+
+{% endschema %}
