@@ -138,7 +138,15 @@
       "type": "custom-annoucment-bar",
       "name": "Custom Announcement Bar",
       "settings": {
-        "text": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>"
+        "text": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>",
+        "font_size": 32,
+        "background_color": "#f4f4f4",
+        "text_color": "#000000",
+        "text_alignment": "center",
+        "padding_top": 4,
+        "padding_bottom": 4,
+        "padding_left": 20,
+        "padding_right": 20
       }
     },
     "custom_product_grid_HNyx34": {
