@@ -201,8 +201,8 @@
       "type": "custom-product-grid",
       "name": "Custom Product Grid",
       "settings": {
-        "heading": "Explore Our Collection",
-        "description": "Discover our carefully selected products.",
+        "heading": "",
+        "description": "",
         "product_1": "dark-denim-top",
         "product_2": "black-leather-bag",
         "product_3": "blue-silk-tuxedo",
