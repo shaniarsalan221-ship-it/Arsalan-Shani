@@ -1,0 +1,67 @@
+<section
+  id="announcement-bar-{{ section.id }}"
+  class="custom-announcement-bar"
+>
+  <div class="custom-announcement-bar__content">
+    {{ section.settings.text }}
+  </div>
+</section>
+
+<style>
+  #announcement-bar-{{ section.id }} {
+    width: 100%;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 4px 20px;
+  }
+
+  #announcement-bar-{{ section.id }}
+  .custom-announcement-bar__content {
+    margin: 0 auto;
+
+    text-align: center;
+
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.4;
+
+    color: #000;
+  }
+
+  #announcement-bar-{{ section.id }}
+  .custom-announcement-bar__content p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    #announcement-bar-{{ section.id }} {
+      padding: 5px 12px;
+    }
+
+    #announcement-bar-{{ section.id }}
+    .custom-announcement-bar__content {
+      font-size: 8px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom Announcement Bar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "<p>SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
