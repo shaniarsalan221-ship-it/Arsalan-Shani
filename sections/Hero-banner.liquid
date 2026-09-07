@@ -360,53 +360,299 @@
   /* ================================
      SMALL MOBILE
   ================================= */
+/* =========================================
+   MOBILE HERO
+========================================= */
 
-  @media screen and (max-width: 380px) {
+@media screen and (max-width: 749px) {
 
-    #custom-hero-{{ section.id }} {
+  #custom-hero-{{ section.id }} {
 
-      aspect-ratio: 0.88 / 1;
-    }
+    position: relative;
+
+    width: 100%;
+
+    /*
+      Figma mobile banner height
+    */
+    height: 290px;
+
+    min-height: 290px;
+
+    /*
+      IMPORTANT:
+      Mobile image is separate from desktop image
+    */
+    {% if section.settings.image_mobile != blank %}
+
+      background-image: url('{{ section.settings.image_mobile | image_url: width: 1200 }}');
+
+    {% else %}
+
+      background-image: none;
+
+    {% endif %}
+
+    /*
+      Do NOT crop mobile image
+    */
+    background-size: contain;
+
+    /*
+      Keep image at the bottom
+    */
+    background-position: center bottom;
+
+    background-repeat: no-repeat;
+
+    /*
+      White area behind image
+    */
+    background-color: #fff;
+
+    display: block;
+
+    overflow: hidden;
+  }
 
 
-    #custom-hero-{{ section.id }}
-    .custom-hero-banner__content {
+  /* =========================================
+     MOBILE CONTENT
+  ========================================= */
 
-      top: 24px;
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__content {
 
-      width: calc(100% - 24px);
-    }
+    position: absolute;
+
+    z-index: 2;
+
+    top: 25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 30px);
+
+    max-width: 280px;
+
+    padding: 0;
+
+    text-align: center;
+
+    color: #000;
+  }
 
 
-    #custom-hero-{{ section.id }}
-    .custom-hero-banner__content h1 {
+  /* =========================================
+     HEADING
+  ========================================= */
 
-      font-size: 20px;
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__content h1 {
 
-      margin-bottom: 10px;
-    }
+    margin: 0 0 12px;
+
+    font-family: 'Jost', sans-serif;
+
+    font-size: 21px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    color: #000;
+  }
 
 
-    #custom-hero-{{ section.id }}
-    .custom-hero-banner__content p {
+  /* =========================================
+     DESCRIPTION
+  ========================================= */
 
-      font-size: 10px;
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__content p {
 
-      max-width: 210px;
-    }
+    margin: 0 auto;
+
+    max-width: 225px;
+
+    font-family: 'Jost', sans-serif;
+
+    font-size: 10px;
+
+    line-height: 1.35;
+
+    font-weight: 400;
+
+    color: #000;
+  }
 
 
-    #custom-hero-{{ section.id }}
-    .custom-hero-banner__button {
+  /* =========================================
+     SHOP NOW BUTTON
+  ========================================= */
 
-      top: 165px;
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button {
 
-      min-width: 138px;
+    position: absolute;
 
-      height: 29px;
-    }
+    /*
+      Position relative to content
+    */
+    top: 155px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 145px;
+
+    min-width: 145px;
+
+    height: 30px;
+
+    padding: 0 12px 0 20px;
+
+    gap: 12px;
+
+    background: #000;
+
+    color: #fff;
+
+    border: 0;
+
+    border-radius: 0;
+
+    font-family: 'Jost', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: 0;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: opacity .3s ease;
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button::after {
+
+    content: '→';
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    transition: transform .3s ease;
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button:hover {
+
+    background: #000;
+
+    color: #fff;
+
+    opacity: .9;
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button:hover::after {
+
+    transform: translateX(5px);
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 380px) {
+
+  #custom-hero-{{ section.id }} {
+
+    height: 270px;
+
+    min-height: 270px;
+
+    background-size: contain;
+
+    background-position: center bottom;
 
   }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__content {
+
+    top: 25px;
+
+    width: calc(100% - 20px);
+
+    max-width: 270px;
+
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__content h1 {
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__content p {
+
+    max-width: 220px;
+
+    font-size: 9px;
+
+    line-height: 1.35;
+
+  }
+
+
+  #custom-hero-{{ section.id }}
+  .custom-hero-banner__button {
+
+    top: 150px;
+
+    width: 140px;
+
+    min-width: 140px;
+
+    height: 29px;
+
+    font-size: 9px;
+
+  }
+
+}
 
 </style>
 
