@@ -197,6 +197,21 @@
         "padding-block-end": 1
       }
     },
+    "custom_product_grid_HNyx34": {
+      "type": "custom-product-grid",
+      "name": "Custom Product Grid",
+      "settings": {
+        "heading": "Explore Our Collection",
+        "description": "Discover our carefully selected products.",
+        "product_1": "dark-denim-top",
+        "product_2": "black-leather-bag",
+        "product_3": "blue-silk-tuxedo",
+        "product_4": "chequered-red-shirt",
+        "product_5": "classic-leather-jacket",
+        "product_6": "classic-varsity-top",
+        "automatic_product": "dark-winter-jacket"
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -402,6 +417,7 @@
     "hero_banner_Y6iR3A",
     "hero_jVaWmY",
     "section_FaK7yy",
+    "custom_product_grid_HNyx34",
     "product_list_fa6P9H"
   ]
 }
